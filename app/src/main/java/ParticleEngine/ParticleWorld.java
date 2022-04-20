@@ -70,7 +70,6 @@ public class ParticleWorld {
     }
 
     public void doPhysics() {
-        ParticleWorld oldWorld = new ParticleWorld(this.world);
         for (int rowIndex = world[0].length - 1 ; rowIndex >= 0 ; rowIndex--) {
             for (int colIndex = 0 ; colIndex < world.length ; colIndex++) {
                 getParticle(colIndex, rowIndex).doPhysics(colIndex, rowIndex);
@@ -97,4 +96,22 @@ public class ParticleWorld {
 
         return tempString;
     }
+    /*
+    ParticleWorld world = new ParticleWorld(15,5);
+        Particle sand = new SandParticle(world);
+        world.setParticle(2,2, sand);
+        world.setParticle(0,0, sand);
+        world.setParticle(0,1, sand);
+        world.setParticle(9,0, sand);
+        world.setParticle(14,0, sand);
+        world.toString();
+        world.doPhysics();
+        world.toString();
+        world.doPhysics();
+        world.toString();
+        world.doPhysics();
+        world.toString();
+        world.doPhysics();
+        world.toString();
+     */
 }
