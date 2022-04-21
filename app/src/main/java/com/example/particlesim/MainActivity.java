@@ -18,6 +18,7 @@ import ParticleEngine.EmptyParticle;
 import ParticleEngine.Particle;
 import ParticleEngine.ParticleWorld;
 import ParticleEngine.SandParticle;
+import ParticleEngine.StoneParticle;
 import ParticleEngine.Type;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         //Testing stuff
         particleWorld = new ParticleWorld(35,35);
         Particle sand = new SandParticle(particleWorld);
+        particleWorld.setParticle(2,6, new StoneParticle(particleWorld));
         particleWorld.setParticle(2,2, sand);
         particleWorld.setParticle(0,0, sand);
         particleWorld.setParticle(0,1, sand);
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         for (int colIndex = 0 ; colIndex < worldArray.length ; colIndex++) {
             for (int rowIndex = 0 ; rowIndex < worldArray[colIndex].length ; rowIndex++) {
                 if (worldArray[colIndex][rowIndex].getType() != Type.EMPTY) {
-                    drawParticle(colIndex, rowIndex, Color.RED);
+                    drawParticle(colIndex, rowIndex, particleWorld.getParticle(colIndex, rowIndex).getColor());
                 }
             }
         }

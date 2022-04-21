@@ -1,10 +1,13 @@
 package ParticleEngine;
 
+import android.graphics.Color;
+
 public class SandParticle extends Particle {
 
     public SandParticle(ParticleWorld world) {
         super(world);
         this.type = Type.SAND;
+        this.color = Color.YELLOW;
     }
 
     @Override
