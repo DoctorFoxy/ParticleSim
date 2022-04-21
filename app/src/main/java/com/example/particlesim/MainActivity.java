@@ -28,11 +28,19 @@ public class MainActivity extends AppCompatActivity {
     private Canvas canvas;
     private Paint paint;
 
+    private int backgroundColor;
+    private int simSpeed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Config
+        backgroundColor = Color.TRANSPARENT;
+        simSpeed = 50;
+
+        //
         gameBitmap = Bitmap.createBitmap(350,350, Bitmap.Config.ARGB_8888);
         canvas = new Canvas(gameBitmap);
         paint = new Paint();
@@ -40,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewGame = (ImageView) findViewById(R.id.imageViewGame);
         imageViewGame.setImageBitmap(gameBitmap);
 
+        //Testing stuff
         particleWorld = new ParticleWorld(35,35);
         Particle sand = new SandParticle(particleWorld);
         particleWorld.setParticle(2,2, sand);
@@ -49,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
         particleWorld.setParticle(14,0, sand);
         particleWorld.setParticle(34,0, sand);
         particleWorld.setParticle(34,34, sand);
+        particleWorld.setParticle(30,11, new SandParticle(particleWorld));
 
+        //Repeats code
         tickHandler = new Handler();
         repeatedCode.run();
     }
@@ -59,13 +70,10 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             particleWorld.doPhysics();
             refresh();
-            //particleWorld.fillWorldEmpty();
-            //particleWorld.setParticle(20,20, new SandParticle(particleWorld));
-            System.out.println("refreshed");
-            particleWorld.doPhysics();
-            refresh();
 
-            tickHandler.postDelayed(repeatedCode, 1000);
+            System.out.println("refreshed");
+
+            tickHandler.postDelayed(repeatedCode, simSpeed);
         }
     };
 
@@ -75,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clearGame() {
-        canvas.drawColor(Color.GREEN);
+        gameBitmap.eraseColor(backgroundColor);
     }
 
     public void refresh() {
@@ -88,5 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+        imageViewGame.invalidate();
     }
 }
