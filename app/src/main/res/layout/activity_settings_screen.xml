@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="StartScreen.SettingsScreen">
+
+    <Button
+        android:id="@+id/DownloadB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onDownloadB_Pressed"
+        android:text="@string/download"
+        app:layout_constraintBottom_toTopOf="@+id/MainMenuB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UploadB" />
+
+    <Button
+        android:id="@+id/MainMenuB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onDownloadB_Pressed"
+        android:text="@string/main_menu"
+        app:layout_constraintBottom_toTopOf="@+id/ResumeB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DownloadB" />
+
+    <Button
+        android:id="@+id/UploadB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onUploadB_Pressed"
+        android:text="@string/upload"
+        app:layout_constraintBottom_toTopOf="@+id/DownloadB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CheckBoxBW" />
+
+    <Button
+        android:id="@+id/ResumeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="134dp"
+        android:onClick="onResumeB_Pressed"
+        android:text="@string/resume"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/CheckBoxBW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text="@string/blackmodecb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="BlackMode" />
+
+    <TextView
+        android:id="@+id/SettingsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/settings"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
