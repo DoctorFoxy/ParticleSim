@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
     private int simSpeed;
     private Type selectedType;
 
+    private boolean pressing;
+    private int latestX;
+    private int latestY;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         backgroundColor = Color.GREEN;
         simSpeed = 50;
         selectedType = Type.SAND;
+        pressing = false;
 
         //
         gameBitmap = Bitmap.createBitmap(350,350, Bitmap.Config.ARGB_8888);
@@ -81,7 +86,13 @@ public class MainActivity extends AppCompatActivity {
                     int y = (int) event.getY();
                     int parsedY = (int) Math.floor(y/(imageViewGame.getHeight()/35));
 
+                    latestX = parsedX;
+                    latestY = parsedY;
                     newParticle(parsedX, parsedY, selectedType);
+                    pressing = true;
+                }
+                else if (event.getAction() == MotionEvent.ACTION_UP){
+                    pressing = false;
                 }
                 return true;
             }
@@ -93,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             particleWorld.doPhysics();
             refresh();
-
+            if (pressing) {
+                newParticle(latestX,latestY,selectedType);
+            }
             //System.out.println("refreshed");
 
             tickHandler.postDelayed(repeatedCode, simSpeed);
