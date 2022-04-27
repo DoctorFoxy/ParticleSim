@@ -13,10 +13,10 @@
             android:name="StartScreen.SettingsScreen"
             android:exported="false" />
         <activity
-            android:name="StartScreen.StartScreen"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="StartScreen.StartScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

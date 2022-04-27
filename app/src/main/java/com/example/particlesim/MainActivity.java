@@ -1,5 +1,6 @@
 package com.example.particlesim;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,11 +8,14 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.util.stream.IntStream;
 
 import ParticleEngine.EmptyParticle;
 import ParticleEngine.Particle;
@@ -185,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
         imageViewGame.invalidate();
     }
 }
