@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private Type selectedType;
 
     private boolean pressing;
-    private boolean halfTimePress;
     private int latestX;
     private int latestY;
 
@@ -48,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         simSpeed = 50;
         selectedType = Type.SAND;
         pressing = false;
-        halfTimePress = true;
 
         //
         gameBitmap = Bitmap.createBitmap(350,350, Bitmap.Config.ARGB_8888);
@@ -58,27 +56,15 @@ public class MainActivity extends AppCompatActivity {
         imageViewGame = (ImageView) findViewById(R.id.imageViewGame);
         imageViewGame.setImageBitmap(gameBitmap);
 
-        //Testing stuff
         particleWorld = new ParticleWorld(35,35);
-        Particle sand = new SandParticle(particleWorld);
-        //particleWorld.setParticle(2,6, new StoneParticle(particleWorld));
-        particleWorld.setParticle(2,2, sand);
-        particleWorld.setParticle(0,0, sand);
-        particleWorld.setParticle(4,0, sand);
-        particleWorld.setParticle(6,0, sand);
-        particleWorld.setParticle(7,0, sand);
-        particleWorld.setParticle(0,1, sand);
-        particleWorld.setParticle(9,0, sand);
-        particleWorld.setParticle(14,0, sand);
-        particleWorld.setParticle(34,0, sand);
-        particleWorld.setParticle(34,34, sand);
-        particleWorld.setParticle(30,11, new SandParticle(particleWorld));
+
+        particleWorld.setParticle(10,10,new SandParticle(particleWorld));
 
         //Repeats code
         tickHandler = new Handler();
         repeatedCode.run();
 
-        //Imageview Listener
+        //Imageview Listener (Game listener)
         imageViewGame.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -91,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     latestX = parsedX;
                     latestY = parsedY;
                     newParticle(parsedX, parsedY, selectedType);
-                    halfTimePress = true;
                     pressing = true;
                 }
                 else if (event.getAction() == MotionEvent.ACTION_UP){
@@ -112,6 +97,32 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        //Button Listeners
+        findViewById(R.id.selectButtonSand).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                selectedType = Type.SAND;
+            }
+        });
+
+        findViewById(R.id.selectButtonStone).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                selectedType = Type.STONE;
+            }
+        });
+
+        findViewById(R.id.selectButtonWater).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                selectedType = Type.WATER;
+            }
+        });
+
+        findViewById(R.id.resetButton).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                particleWorld.fillWorldEmpty();
+                refresh();
+            }
+        });
     }
 
     Runnable repeatedCode = new Runnable() {
@@ -122,13 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Pressing stuff
             if (pressing) {
-                if (halfTimePress) {
-                    halfTimePress = false;
-                }
-                else {
-                    halfTimePress = true;
-                    newParticle(latestX,latestY,selectedType);
-                }
+                newParticle(latestX,latestY,selectedType);
             }
 
 
