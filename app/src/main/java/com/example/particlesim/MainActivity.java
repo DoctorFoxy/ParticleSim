@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Type selectedType;
 
     private boolean pressing;
+    private boolean halfTimePress;
     private int latestX;
     private int latestY;
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         simSpeed = 50;
         selectedType = Type.SAND;
         pressing = false;
+        halfTimePress = true;
 
         //
         gameBitmap = Bitmap.createBitmap(350,350, Bitmap.Config.ARGB_8888);
@@ -89,10 +91,23 @@ public class MainActivity extends AppCompatActivity {
                     latestX = parsedX;
                     latestY = parsedY;
                     newParticle(parsedX, parsedY, selectedType);
+                    halfTimePress = true;
                     pressing = true;
                 }
                 else if (event.getAction() == MotionEvent.ACTION_UP){
                     pressing = false;
+                }
+                else if (event.getAction() == MotionEvent.ACTION_MOVE){
+                    if (pressing) {
+                        int x = (int) event.getX();
+                        int parsedX = (int) Math.floor(x/(imageViewGame.getWidth()/35));
+                        int y = (int) event.getY();
+                        int parsedY = (int) Math.floor(y/(imageViewGame.getHeight()/35));
+
+                        latestX = parsedX;
+                        latestY = parsedY;
+                    }
+                    // code
                 }
                 return true;
             }
@@ -104,9 +119,20 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             particleWorld.doPhysics();
             refresh();
+
+            //Pressing stuff
             if (pressing) {
-                newParticle(latestX,latestY,selectedType);
+                if (halfTimePress) {
+                    halfTimePress = false;
+                }
+                else {
+                    halfTimePress = true;
+                    newParticle(latestX,latestY,selectedType);
+                }
             }
+
+
+
             //System.out.println("refreshed");
 
             tickHandler.postDelayed(repeatedCode, simSpeed);
