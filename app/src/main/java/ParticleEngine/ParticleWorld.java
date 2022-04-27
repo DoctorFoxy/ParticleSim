@@ -2,7 +2,6 @@ package ParticleEngine;
 
 public class ParticleWorld {
     private Particle[][] world;
-
     public ParticleWorld() {
         world = new Particle[10][10];
         fillWorldEmpty();

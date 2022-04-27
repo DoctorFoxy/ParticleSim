@@ -1,9 +1,10 @@
 package com.example.particlesim;
-
+import  StartScreen.SettingsScreen;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ import ParticleEngine.ParticleWorld;
 import ParticleEngine.SandParticle;
 import ParticleEngine.StoneParticle;
 import ParticleEngine.Type;
+import StartScreen.StartScreen;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView imageViewGame;
@@ -140,10 +142,6 @@ public class MainActivity extends AppCompatActivity {
                 newParticle(latestX,latestY,selectedType);
             }
 
-
-
-            //System.out.println("refreshed");
-
             tickHandler.postDelayed(repeatedCode, simSpeed);
         }
     };
@@ -192,4 +190,15 @@ public class MainActivity extends AppCompatActivity {
 
         imageViewGame.invalidate();
     }
+
+    public void onMainMenuButton_Pressed(View caller){
+        Intent intent = new Intent(this, StartScreen.class);
+        startActivity(intent);
+    }
+
+    public void onSettingsScreen_Pressed(View caller){
+        Intent intent = new Intent(this, SettingsScreen.class);
+        startActivity(intent);
+    }
+
 }
