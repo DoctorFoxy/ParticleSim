@@ -1,13 +1,17 @@
 package ParticleEngine;
 
+import android.graphics.Color;
+
 public abstract class Particle {
     protected Type type;
     protected ParticleWorld world;
     protected boolean isSolid;
+    protected int color;
 
     public Particle(ParticleWorld world) {
         this.world = world;
         isSolid = true;
+        color = Color.WHITE;
     }
 
     public void doPhysics(int x, int y){};
@@ -18,6 +22,10 @@ public abstract class Particle {
 
     public boolean getIsSolid() {
         return true;
+    }
+
+    public int getColor() {
+        return color;
     }
 
 }
