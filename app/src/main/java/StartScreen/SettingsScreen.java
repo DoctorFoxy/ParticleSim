@@ -51,7 +51,8 @@ public class SettingsScreen extends AppCompatActivity {
     startActivity(intent);
     }
     public void onUploadB_Pressed(View caller){
-        // still needs to be implemented the way to the database
+        Intent intent = new Intent(this, UploadScreen.class);
+        startActivity(intent);
     }
     public void onDownloadB_Pressed(View caller){
     // still needs to be implemented the way to the database

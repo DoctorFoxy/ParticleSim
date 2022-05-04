@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="StartScreen.UploadScreen">
+
+    <Button
+        android:id="@+id/UploadButton"
+        android:layout_width="163dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="68dp"
+        android:onClick="onUploadPressed"
+        android:text="Upload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BackButton"
+        android:layout_width="163dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginBottom="68dp"
+        android:onClick="onBackPressed"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editWorldNameInput"
+        android:layout_width="325dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="180dp"
+        android:hint="World Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextUsernameInput"
+        android:layout_width="325dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="100dp"
+        android:hint="Username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editWorldNameInput" />
+
+    <TextView
+        android:id="@+id/worldNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="World Name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editWorldNameInput"
+        app:layout_constraintStart_toStartOf="@+id/editWorldNameInput" />
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsernameInput"
+        app:layout_constraintStart_toStartOf="@+id/editTextUsernameInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
