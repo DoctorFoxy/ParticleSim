@@ -55,6 +55,7 @@ public class SettingsScreen extends AppCompatActivity {
     }
     public void onUploadB_Pressed(View caller){
         Intent intent = new Intent(this, UploadScreen.class);
+        intent.putExtra("World", getIntent().getSerializableExtra("World"));
         startActivity(intent);
     }
     public void onDownloadB_Pressed(View caller){

@@ -28,42 +28,47 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editWorldNameInput"
-        android:layout_width="325dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="180dp"
-        android:hint="World Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editTextUsernameInput"
-        android:layout_width="325dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="100dp"
-        android:hint="Username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editWorldNameInput" />
-
     <TextView
         android:id="@+id/worldNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="120dp"
         android:text="World Name"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editWorldNameInput"
-        app:layout_constraintStart_toStartOf="@+id/editWorldNameInput" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
         android:text="Username"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextUsernameInput"
-        app:layout_constraintStart_toStartOf="@+id/editTextUsernameInput" />
+        app:layout_constraintStart_toStartOf="@+id/worldNameText"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWorldName" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="325dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="140dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        app:layout_constraintStart_toStartOf="@+id/usernameText"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWorldName" />
+
+    <EditText
+        android:id="@+id/editTextWorldName"
+        android:layout_width="325dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="World name"
+        app:layout_constraintStart_toStartOf="@+id/worldNameText"
+        app:layout_constraintTop_toBottomOf="@+id/worldNameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
