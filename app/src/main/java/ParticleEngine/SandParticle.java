@@ -13,7 +13,7 @@ public class SandParticle extends Particle {
     @Override
     public void doPhysics(int x, int y, ParticleWorld copyWorld,ParticleWorld realworld) {
         if (!copyWorld.locSolid(x, y+1)) {
-            world.switchParticle(x, y, x, y+1);
+            realworld.switchParticle(x, y, x, y+1);
         }
     }
 
