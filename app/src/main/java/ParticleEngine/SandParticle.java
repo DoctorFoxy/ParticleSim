@@ -11,8 +11,8 @@ public class SandParticle extends Particle {
     }
 
     @Override
-    public void doPhysics(int x, int y) {
-        if (!world.locSolid(x, y+1)) {
+    public void doPhysics(int x, int y, ParticleWorld copyWorld,ParticleWorld realworld) {
+        if (!copyWorld.locSolid(x, y+1)) {
             world.switchParticle(x, y, x, y+1);
         }
     }
@@ -20,5 +20,12 @@ public class SandParticle extends Particle {
     @Override
     public boolean getIsSolid() {
         return true;
+    }
+
+    @Override
+    public Particle clone (ParticleWorld cloneWorld) {
+        Particle cloneParticle = new SandParticle(cloneWorld);
+
+        return  cloneParticle;
     }
 }

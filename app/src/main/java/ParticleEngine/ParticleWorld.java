@@ -71,13 +71,42 @@ public class ParticleWorld {
         setParticle(x2,y2, getParticle(x1,y1));
         setParticle(x1,y1, tempParticle);
     }
+    public ParticleWorld cloneWorld (ParticleWorld particleWorld){
+        ParticleWorld cloneWorld = new ParticleWorld(35,35);
+        for (int rowIndex = particleWorld.getWorld()[0].length - 1 ; rowIndex >= 0 ; rowIndex--) {
+            for (int colIndex = 0; colIndex < particleWorld.getWorld().length; colIndex++) {
+                if (particleWorld.getParticle(colIndex,rowIndex).getType()==Type.GAS){
+                    cloneWorld.setParticle(colIndex,rowIndex,new GasParticle(cloneWorld));
+                }
+                else{
+                    if (particleWorld.getParticle(colIndex,rowIndex).getType()==Type.STONE){
+                    cloneWorld.setParticle(colIndex,rowIndex,new StoneParticle(cloneWorld));
+                    }
+                    else{
+                        if (particleWorld.getParticle(colIndex,rowIndex).getType()==Type.SAND){
+                            cloneWorld.setParticle(colIndex,rowIndex,new SandParticle(cloneWorld));
+                        }
 
-    public void doPhysics() {
-        for (int rowIndex = world[0].length - 1 ; rowIndex >= 0 ; rowIndex--) {
-            for (int colIndex = 0 ; colIndex < world.length ; colIndex++) {
-                getParticle(colIndex, rowIndex).doPhysics(colIndex, rowIndex);
+                        else {
+                        if (particleWorld.getParticle(colIndex,rowIndex).getType()==Type.WATER){
+                            cloneWorld.setParticle(colIndex,rowIndex,new WaterParticle(cloneWorld));
+                        }
+                        else{
+                            cloneWorld.setParticle(colIndex,rowIndex,new EmptyParticle(cloneWorld));
+
+                        }
+                    }
+            }}}
+        }
+        return cloneWorld;
+    }
+    public ParticleWorld doPhysics(ParticleWorld copieworld, ParticleWorld realworld) {
+        for (int rowIndex = copieworld.getWorld()[0].length - 1 ; rowIndex >= 0 ; rowIndex--) {
+            for (int colIndex = 0 ; colIndex < copieworld.getWorld().length ; colIndex++) {
+                copieworld.getParticle(colIndex, rowIndex).doPhysics(colIndex, rowIndex,copieworld,realworld);
             }
         }
+        return realworld;
     }
 
     @Override
@@ -99,4 +128,24 @@ public class ParticleWorld {
 
         return tempString;
     }
+
+
+    /*
+    ParticleWorld world = new ParticleWorld(15,5);
+        Particle sand = new SandParticle(world);
+        world.setParticle(2,2, sand);
+        world.setParticle(0,0, sand);
+        world.setParticle(0,1, sand);
+        world.setParticle(9,0, sand);
+        world.setParticle(14,0, sand);
+        world.toString();
+        world.doPhysics();
+        world.toString();
+        world.doPhysics();
+        world.toString();
+        world.doPhysics();
+        world.toString();
+        world.doPhysics();
+        world.toString();
+     */
 }

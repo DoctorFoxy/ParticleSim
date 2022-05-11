@@ -11,12 +11,17 @@ public class StoneParticle extends Particle {
     }
 
     @Override
-    public void doPhysics(int x, int y) {
+    public void doPhysics(int x, int y,ParticleWorld copyWorld,ParticleWorld realworld)  {
         //Do nothing, STONE stays in place
     }
 
     @Override
     public boolean getIsSolid() {
         return true;
+    }
+
+    @Override
+    public Particle clone(ParticleWorld cloneWorld) {
+        return null;
     }
 }

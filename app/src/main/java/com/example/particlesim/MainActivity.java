@@ -18,15 +18,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.stream.IntStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import ParticleEngine.EmptyParticle;
+import ParticleEngine.GasParticle;
 import ParticleEngine.Particle;
 import ParticleEngine.ParticleWorld;
 import ParticleEngine.SandParticle;
 import ParticleEngine.StoneParticle;
 import ParticleEngine.Type;
 import StartScreen.StartScreen;
+import ParticleEngine.WaterParticle;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView imageViewGame;
@@ -140,7 +143,8 @@ public class MainActivity extends AppCompatActivity {
     Runnable repeatedCode = new Runnable() {
         @Override
         public void run() {
-            particleWorld.doPhysics();
+            ParticleWorld cloneWorld = particleWorld.cloneWorld(particleWorld);
+            particleWorld.doPhysics(cloneWorld,particleWorld);
             refresh();
 
             //Pressing stuff
@@ -182,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
     public void clearGame() {
         gameBitmap.eraseColor(backgroundColor);
     }
+
 
     public void refresh() {
         clearGame();

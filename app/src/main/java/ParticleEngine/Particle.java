@@ -2,6 +2,9 @@ package ParticleEngine;
 
 import android.graphics.Color;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public abstract class Particle {
     protected Type type;
     protected ParticleWorld world;
@@ -14,7 +17,9 @@ public abstract class Particle {
         color = Color.WHITE;
     }
 
-    public void doPhysics(int x, int y){};
+    public void doPhysics(int x, int y,ParticleWorld copyworld,ParticleWorld realworld){
+
+    };
 
     public Type getType() {
         return type;
@@ -27,5 +32,7 @@ public abstract class Particle {
     public int getColor() {
         return color;
     }
+
+    public abstract  Particle clone (ParticleWorld cloneWorld);
 
 }

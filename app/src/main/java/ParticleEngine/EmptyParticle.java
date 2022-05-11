@@ -11,4 +11,11 @@ public class EmptyParticle extends Particle {
     public boolean getIsSolid() {
         return false;
     }
+
+    @Override
+    public Particle clone(ParticleWorld cloneWorld) {
+        return null;
+    }
+
+
 }
