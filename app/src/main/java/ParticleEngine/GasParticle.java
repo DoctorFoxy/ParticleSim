@@ -13,6 +13,7 @@ public class GasParticle extends Particle {
 
     @Override
     public void doPhysics(int x, int y,ParticleWorld copyWorld, ParticleWorld realworld) {
+        if(realworld.getParticle(x,y).getType() == type.GAS )
         if (!copyWorld.locSolid(x, y-1) && !CheckUnderGas(x, y, copyWorld)) {
 
                 realworld.switchParticle(x, y, x, y - 1);

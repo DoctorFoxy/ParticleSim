@@ -14,10 +14,11 @@ public class WaterParticle extends Particle {
 
     @Override
     public void doPhysics(int x, int y,ParticleWorld copyWorld, ParticleWorld realworld) {
-        if (!copyWorld.locSolid(x, y+1) && !CheckAboveWater(x, y, copyWorld )) {
+        if (realworld.getParticle(x,y).getType() == type.WATER ) {
+            if (!copyWorld.locSolid(x, y+1) && !CheckAboveWater(x, y, copyWorld ) )  {
             realworld.switchParticle(x, y, x, y + 1);
-        }
-           else{
+            }
+            else{
                 if(Checkleft(x, y,copyWorld)== true && Checkrigth(x, y,copyWorld)==true)  {
                     Random rand = new Random();
                     int rand_C = rand.nextInt(2);
@@ -38,6 +39,7 @@ public class WaterParticle extends Particle {
                 }
             }
         }
+    }
 
 
 
