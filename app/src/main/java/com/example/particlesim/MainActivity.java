@@ -1,4 +1,5 @@
 package com.example.particlesim;
+import ParticleEngine.WorldParser;
 import  StartScreen.SettingsScreen;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -63,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
         imageViewGame.setImageBitmap(gameBitmap);
 
         particleWorld = new ParticleWorld(35,35);
+        if (getIntent().getSerializableExtra("World") != null) {
+            particleWorld.setWorld(WorldParser.stringToWorld((String) getIntent().getSerializableExtra("World"), particleWorld));
+        }
 
+        //Test particle
         particleWorld.setParticle(10,10,new SandParticle(particleWorld));
 
         //Repeats code
@@ -193,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onMainMenuButton_Pressed(View caller){
         Intent intent = new Intent(this, StartScreen.class);
+        intent.putExtra("World", WorldParser.worldToString(particleWorld.getWorld()));
         startActivity(intent);
     }
 

@@ -3,7 +3,7 @@ package ParticleEngine;
 public class ParticleWorld {
     private Particle[][] world;
     public ParticleWorld() {
-        world = new Particle[10][10];
+        world = new Particle[35][35];
         fillWorldEmpty();
     }
 
@@ -51,6 +51,10 @@ public class ParticleWorld {
                 world[colIndex][rowIndex] = new EmptyParticle(this);
             }
         }
+    }
+
+    public void setWorld(Particle[][] world) {
+        this.world = world;
     }
 
     public Particle[][] getWorld() {
