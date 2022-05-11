@@ -52,6 +52,15 @@
             android:text="Water"
             app:layout_column="1"
             app:layout_row="0" />
+
+        <Button
+            android:id="@+id/selectButtonGas"
+            android:layout_width="wrap_content"
+            android:layout_height="61dp"
+            android:onClick="On_Gas_Pressed"
+            android:text="Gas"
+            app:layout_column="0"
+            app:layout_row="1" />
     </androidx.gridlayout.widget.GridLayout>
 
     <Button

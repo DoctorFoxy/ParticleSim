@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
             particleWorld.setWorld(WorldParser.stringToWorld((String) getIntent().getSerializableExtra("World"), particleWorld));
         }
 
-        //Test particle
-        particleWorld.setParticle(10,10,new SandParticle(particleWorld));
 
         //Repeats code
         tickHandler = new Handler();
@@ -140,6 +138,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void On_Gas_Pressed(View caller){
+        selectedType = Type.GAS;
+    }
+
     Runnable repeatedCode = new Runnable() {
         @Override
         public void run() {
@@ -171,8 +173,11 @@ public class MainActivity extends AppCompatActivity {
             case WATER:
                 newParticle = new WaterParticle(particleWorld);
                 break;
+            case GAS:
+                newParticle = new GasParticle(particleWorld);
+                break;
             default: newParticle = new EmptyParticle(particleWorld);
-            //case GAS:   newParticle = new GasParticle(particleWorld
+
                 //TODO add other particleTypes
         }
 

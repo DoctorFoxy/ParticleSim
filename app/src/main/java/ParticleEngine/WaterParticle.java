@@ -8,12 +8,13 @@ public class WaterParticle extends Particle {
         super(world);
         this.type = Type.WATER;
         this.color = Color.BLUE;
+        this.isSolid = false;
 
     }
 
     @Override
     public void doPhysics(int x, int y,ParticleWorld copyWorld, ParticleWorld realworld) {
-        if (!copyWorld.locSolid(x, y+1) && !CheckAboveWater(x, y, copyWorld)) {
+        if (!copyWorld.locSolid(x, y+1) && !CheckAboveWater(x, y, copyWorld )) {
             realworld.switchParticle(x, y, x, y + 1);
         }
            else{
@@ -58,6 +59,14 @@ public class WaterParticle extends Particle {
             return false;
         }
 
+    }
+    public Boolean CheckAboveGas(int x ,int y,ParticleWorld copyWorld){
+        if(copyWorld.getParticle(x,y+1).getType() == Type.GAS ) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public Boolean Checkleft(int x, int y,ParticleWorld copyWorld) {

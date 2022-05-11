@@ -7,16 +7,16 @@ public class GasParticle extends Particle {
     public GasParticle(ParticleWorld world) {
         super(world);
         this.type = Type.GAS;
-        this.color = Color.GREEN;
-
+        this.color = Color.LTGRAY;
+        this.isSolid = false;
     }
 
     @Override
     public void doPhysics(int x, int y,ParticleWorld copyWorld, ParticleWorld realworld) {
-        if (!copyWorld.locSolid(x, y-1)) {
-            if (!CheckUnderGas(x, y, copyWorld)) {
+        if (!copyWorld.locSolid(x, y-1) && !CheckUnderGas(x, y, copyWorld)) {
+
                 realworld.switchParticle(x, y, x, y - 1);
-            }
+
         }
         else{
             if(Checkleft(x, y,copyWorld)== true && Checkrigth(x, y,copyWorld)==true)  {
