@@ -42,7 +42,10 @@ public class SettingsScreen extends AppCompatActivity {
             }
 
             startActivity(intent);*/
-        }
+
+        finish();
+    }
+
     public void onMainMenuB_Pressed(View caller){
     Intent intent = new Intent(this, StartScreen.class);
       /*if (CheckBoxBW.isChecked()){
@@ -62,4 +65,7 @@ public class SettingsScreen extends AppCompatActivity {
             }*/
     startActivity(intent);
     }
+
+
+
 }

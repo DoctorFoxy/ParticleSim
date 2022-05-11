@@ -168,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
             case SAND:
                 newParticle = new SandParticle(particleWorld);
                 break;
+            case WATER:
+                newParticle = new WaterParticle(particleWorld);
+                break;
             default: newParticle = new EmptyParticle(particleWorld);
             //case GAS:   newParticle = new GasParticle(particleWorld
                 //TODO add other particleTypes
@@ -210,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSettingsScreen_Pressed(View caller){
         Intent intent = new Intent(this, SettingsScreen.class);
+        intent.putExtra("World", WorldParser.worldToString(particleWorld.getWorld()));
         startActivity(intent);
     }
 

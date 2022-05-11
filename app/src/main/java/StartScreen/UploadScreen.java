@@ -28,7 +28,6 @@ import java.sql.Statement;
 
 public class UploadScreen extends AppCompatActivity {
     private RequestQueue requestQueue;
-    private TextView txtResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +38,23 @@ public class UploadScreen extends AppCompatActivity {
     public void onUploadPressed(View caller){
 
         // TODO: UPLOAD DATABASE STUFF
-
-        Intent intent = new Intent(this, SettingsScreen.class);
-        startActivity(intent);
+        upload();
+        //Intent intent = new Intent(this, SettingsScreen.class);
+        //startActivity(intent);
     }
 
     public void onBackPressed(View caller){
-        Intent intent = new Intent(this, SettingsScreen.class);
-        startActivity(intent);
+        finish();
     }
 
     public void upload() {
         requestQueue = Volley.newRequestQueue( this );
-        String requestURL = "https://studev.groept.be/api/a21pt211/getAll";
+        String postURL = "https://studev.groept.be/api/a21pt211/getAll";
 
-        StringRequest submitRequest = new StringRequest(Request.Method.GET, requestURL,
+        String WorldName = findViewById(R.id.editWorldNameInput).toString();
+        String Username = findViewById(R.id.editTextUsernameInput).toString();
+
+        StringRequest submitRequest = new StringRequest(Request.Method.POST, postURL,
 
                 new Response.Listener<String>()
                 {
@@ -66,9 +67,10 @@ public class UploadScreen extends AppCompatActivity {
                             for( int i = 0; i < responseArray.length(); i++ )
                             {
                                 JSONObject curObject = responseArray.getJSONObject( i );
-                                responseString += curObject.getString( "name" ) + " : " + curObject.getString( "email" ) + "\n";
+                                responseString += curObject.getString( "Username" ) + " : " + curObject.getString( "WorldName" ) + "\n";
                             }
-                            txtResponse.setText(responseString);
+
+                            System.out.println(responseString);
                         }
                         catch( JSONException e )
                         {
@@ -82,7 +84,7 @@ public class UploadScreen extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error)
                     {
-                        txtResponse.setText( error.getLocalizedMessage() );
+                        //txtResponse.setText( error.getLocalizedMessage() );
                     }
                 }
         );

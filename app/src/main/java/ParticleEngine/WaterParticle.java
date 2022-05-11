@@ -13,10 +13,8 @@ public class WaterParticle extends Particle {
 
     @Override
     public void doPhysics(int x, int y,ParticleWorld copyWorld, ParticleWorld realworld) {
-        if (!copyWorld.locSolid(x, y+1)) {
-            if (!CheckAboveWater(x, y, copyWorld)) {
-                realworld.switchParticle(x, y, x, y + 1);
-            }
+        if (!copyWorld.locSolid(x, y+1) && !CheckAboveWater(x, y, copyWorld)) {
+            realworld.switchParticle(x, y, x, y + 1);
         }
            else{
                 if(Checkleft(x, y,copyWorld)== true && Checkrigth(x, y,copyWorld)==true)  {
