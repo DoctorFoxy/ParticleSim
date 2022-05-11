@@ -1,7 +1,8 @@
 package com.example.particlesim;
+import ParticleEngine.GasParticle;
 import ParticleEngine.WorldParser;
 import  StartScreen.SettingsScreen;
-import androidx.annotation.RequiresApi;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -10,19 +11,13 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import ParticleEngine.EmptyParticle;
-import ParticleEngine.GasParticle;
 import ParticleEngine.Particle;
 import ParticleEngine.ParticleWorld;
 import ParticleEngine.SandParticle;
@@ -54,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Config
-        backgroundColor = Color.GREEN;
+        backgroundColor = Color.WHITE;
         simSpeed = 50;
-        selectedType = Type.SAND;
+        selectedType = Type.WATER;
         pressing = false;
 
         //

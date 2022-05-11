@@ -78,11 +78,6 @@ public class WaterParticle extends Particle {
         }
     }
     public Boolean CheckAboveWater(int x ,int y,ParticleWorld copyWorld){
-        if(copyWorld.getParticle(x,y+1).getType() == Type.WATER ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return copyWorld.getParticle(x,y+1).getType().equals(Type.WATER );
     }
 }
