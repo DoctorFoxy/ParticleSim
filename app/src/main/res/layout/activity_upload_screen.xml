@@ -55,8 +55,8 @@
         android:layout_height="64dp"
         android:layout_marginTop="140dp"
         android:ems="10"
+        android:hint="Username"
         android:inputType="textPersonName"
-        android:text="Username"
         app:layout_constraintStart_toStartOf="@+id/usernameText"
         app:layout_constraintTop_toBottomOf="@+id/editTextWorldName" />
 
@@ -66,8 +66,8 @@
         android:layout_height="64dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="World Name"
         android:inputType="textPersonName"
-        android:text="World name"
         app:layout_constraintStart_toStartOf="@+id/worldNameText"
         app:layout_constraintTop_toBottomOf="@+id/worldNameText" />
 

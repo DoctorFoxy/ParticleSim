@@ -48,17 +48,22 @@ public class StartScreen extends AppCompatActivity {
 
     }
     public void onNewGame_Pressed(View caller){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    public void onLoadGame_pressed(View caller){
         if (getIntent().getSerializableExtra("World") != null) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("World", getIntent().getSerializableExtra("World"));
             startActivity(intent);
             finish();
         }
+        else {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+    public void onLoadGame_pressed(View caller){
+        Intent intent = new Intent(this, DownloadScreen.class);
+        startActivity(intent);
+        finish();
     }
     public void onSettings_Pressed(View caller){
         Intent intent = new Intent(this, SettingsScreen.class);

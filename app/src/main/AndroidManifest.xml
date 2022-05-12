@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParticleSim">
         <activity
+            android:name="StartScreen.DownloadScreen"
+            android:exported="false" />
+        <activity
             android:name="StartScreen.UploadScreen"
             android:exported="false" />
         <activity
