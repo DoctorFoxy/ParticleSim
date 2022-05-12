@@ -44,12 +44,16 @@ public class UploadScreen extends AppCompatActivity {
         String requestURL = "https://studev.groept.be/api/a21pt211/uploadWorld/";
 
         EditText textWorldName = (EditText)findViewById(R.id.editTextWorldName);
-        String WorldName = textWorldName.getText().toString();
+        String worldName = textWorldName.getText().toString();
+        worldName = worldName.replaceAll(" ", "_");
+        System.out.println(worldName);
 
         EditText textUsername = (EditText)findViewById(R.id.editTextUsername);
-        String Username = textUsername.getText().toString();
+        String username = textUsername.getText().toString();
+        username = username.replaceAll(" ", "m");
 
-        requestURL += Username + "/" + WorldName + "/" + getIntent().getSerializableExtra("World");
+        requestURL += username + "/" + worldName + "/" + getIntent().getSerializableExtra("World");
+        System.out.println(requestURL);
 
         JsonArrayRequest submitRequest = new JsonArrayRequest(Request.Method.GET, requestURL, null,
 

@@ -48,13 +48,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        System.out.println("MainActivity ON CREATE");
+
         //Config
         backgroundColor = Color.WHITE;
         simSpeed = 50;
         selectedType = Type.WATER;
         pressing = false;
 
-        //
+        //Game Canvas Init
         gameBitmap = Bitmap.createBitmap(350,350, Bitmap.Config.ARGB_8888);
         canvas = new Canvas(gameBitmap);
         paint = new Paint();
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         particleWorld = new ParticleWorld(35,35);
         if (getIntent().getSerializableExtra("World") != null) {
             particleWorld.setWorld(WorldParser.stringToWorld((String) getIntent().getSerializableExtra("World"), particleWorld));
+            getIntent().removeExtra("World");
         }
 
 

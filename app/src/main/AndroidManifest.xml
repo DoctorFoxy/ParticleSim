@@ -13,18 +13,23 @@
         android:theme="@style/Theme.ParticleSim">
         <activity
             android:name="StartScreen.DownloadScreen"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name="StartScreen.UploadScreen"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name="StartScreen.SettingsScreen"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name="StartScreen.StartScreen"
+            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

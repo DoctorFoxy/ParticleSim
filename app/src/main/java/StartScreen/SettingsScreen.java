@@ -51,23 +51,22 @@ public class SettingsScreen extends AppCompatActivity {
 
     public void onMainMenuB_Pressed(View caller){
     Intent intent = new Intent(this, StartScreen.class);
+    //TODO: Stuff for CheckBox black empty particle color needs to be implemented
       /*if (CheckBoxBW.isChecked()){
             EmptyParticle.isBlack;
             }*/
     startActivity(intent);
     }
+
     public void onUploadB_Pressed(View caller){
         Intent intent = new Intent(this, UploadScreen.class);
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
         startActivity(intent);
     }
+
     public void onDownloadB_Pressed(View caller){
-    // still needs to be implemented the way to the database
-    Intent intent = new Intent(this, StartScreen.class);
-      /*if (CheckBoxBW.isChecked()){
-            EmptyParticle.isBlack;
-            }*/
-    startActivity(intent);
+        Intent intent = new Intent(this, DownloadScreen.class);
+        startActivity(intent);
     }
 
 
