@@ -63,7 +63,6 @@ public class StartScreen extends AppCompatActivity {
     public void onLoadGame_pressed(View caller){
         Intent intent = new Intent(this, DownloadScreen.class);
         startActivity(intent);
-        finish();
     }
     public void onSettings_Pressed(View caller){
         Intent intent = new Intent(this, SettingsScreen.class);

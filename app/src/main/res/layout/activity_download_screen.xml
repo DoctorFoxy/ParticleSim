@@ -7,27 +7,31 @@
     tools:context="StartScreen.DownloadScreen">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/WorldNameFilterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        android:layout_marginTop="32dp"
+        android:onClick="onWorldNameButtonClick"
+        android:text="WorldName"
+        app:layout_constraintBottom_toBottomOf="@+id/UsernameFilterButton"
+        app:layout_constraintEnd_toEndOf="@+id/editTexstFilterBy"
+        app:layout_constraintTop_toBottomOf="@+id/editTexstFilterBy"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/UsernameFilterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        android:layout_marginTop="32dp"
+        android:onClick="onUsernameButtonClick"
+        android:text="Username"
+        app:layout_constraintStart_toStartOf="@+id/editTexstFilterBy"
+        app:layout_constraintTop_toBottomOf="@+id/editTexstFilterBy" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editTexstFilterBy"
+        android:layout_width="263dp"
+        android:layout_height="65dp"
         android:layout_marginTop="72dp"
         android:ems="10"
         android:hint="Username/WorldName"
@@ -43,16 +47,29 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
+        android:onClick="onBackClick"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="264dp"
-        android:layout_height="285dp"
+    <TextView
+        android:id="@+id/FilterByText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter by:"
+        app:layout_constraintBottom_toTopOf="@+id/UsernameFilterButton"
+        app:layout_constraintStart_toStartOf="@+id/UsernameFilterButton"
+        app:layout_constraintTop_toBottomOf="@+id/editTexstFilterBy"
+        app:layout_constraintVertical_bias="0.621" />
+
+    <ListView
+        android:id="@+id/FilteredDownloadsListView"
+        android:layout_width="374dp"
+        android:isScrollContainer="false"
+        android:layout_height="374dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="96dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

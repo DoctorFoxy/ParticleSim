@@ -42,6 +42,9 @@ public class SettingsScreen extends AppCompatActivity {
             }
 
             startActivity(intent);*/
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        startActivity(intent);
 
         finish();
     }

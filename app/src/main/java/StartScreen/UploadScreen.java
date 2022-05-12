@@ -2,33 +2,21 @@ package StartScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.particlesim.MainActivity;
 import com.example.particlesim.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 
 public class UploadScreen extends AppCompatActivity {
     private RequestQueue requestQueue;
@@ -60,7 +48,7 @@ public class UploadScreen extends AppCompatActivity {
 
         EditText textUsername = (EditText)findViewById(R.id.editTextUsername);
         String Username = textUsername.getText().toString();
-        System.out.println(getIntent().getSerializableExtra("World"));
+
         requestURL += Username + "/" + WorldName + "/" + getIntent().getSerializableExtra("World");
 
         JsonArrayRequest submitRequest = new JsonArrayRequest(Request.Method.GET, requestURL, null,
