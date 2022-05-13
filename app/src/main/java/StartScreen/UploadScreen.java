@@ -2,9 +2,11 @@ package StartScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.particlesim.MainActivity;
 import com.example.particlesim.R;
 
 import org.json.JSONArray;
@@ -28,14 +31,17 @@ public class UploadScreen extends AppCompatActivity {
     }
 
     public void onUploadPressed(View caller) throws JSONException {
-
-        // TODO: UPLOAD DATABASE STUFF
         upload();
-        //Intent intent = new Intent(this, SettingsScreen.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        startActivity(intent);
+        finish();
     }
 
     public void onBackPressed(View caller){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        startActivity(intent);
         finish();
     }
 

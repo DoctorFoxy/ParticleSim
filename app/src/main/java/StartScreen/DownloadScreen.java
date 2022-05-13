@@ -62,6 +62,9 @@ public class DownloadScreen extends AppCompatActivity {
     }
 
     public void onBackClick(View Caller) {
+        Intent intent = new Intent(DownloadScreen.this, MainActivity.class);
+        intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        startActivity(intent);
         finish();
     }
 
@@ -95,7 +98,7 @@ public class DownloadScreen extends AppCompatActivity {
                             for( int i = 0; i < response.length(); i++ )
                             {
                                 JSONObject curObject = response.getJSONObject( i );
-                                listItems.add("User: " + curObject.getString("Username") + " | World: " + curObject.getString("WorldName"));
+                                listItems.add("u/" + curObject.getString("Username") + " | " + curObject.getString("WorldName"));
                                 worldData.add(curObject.getString("WorldData"));
 
                             }

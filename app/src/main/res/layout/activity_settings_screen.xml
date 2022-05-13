@@ -22,7 +22,7 @@
         android:id="@+id/MainMenuB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onDownloadB_Pressed"
+        android:onClick="onMainMenuB_Pressed"
         android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/ResumeB"
         app:layout_constraintEnd_toEndOf="parent"

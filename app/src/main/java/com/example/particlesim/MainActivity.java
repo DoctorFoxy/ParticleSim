@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         particleWorld = new ParticleWorld(35,35);
         if (getIntent().getSerializableExtra("World") != null) {
+            System.out.println("WORLD LOADED FROM INTENT");
             particleWorld.setWorld(WorldParser.stringToWorld((String) getIntent().getSerializableExtra("World"), particleWorld));
             getIntent().removeExtra("World");
         }
@@ -209,15 +210,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onMainMenuButton_Pressed(View caller){
-        Intent intent = new Intent(this, StartScreen.class);
+        Intent intent = new Intent(MainActivity.this, StartScreen.class);
         intent.putExtra("World", WorldParser.worldToString(particleWorld.getWorld()));
         startActivity(intent);
+        finish();
     }
 
     public void onSettingsScreen_Pressed(View caller){
-        Intent intent = new Intent(this, SettingsScreen.class);
+        Intent intent = new Intent(MainActivity.this, SettingsScreen.class);
         intent.putExtra("World", WorldParser.worldToString(particleWorld.getWorld()));
         startActivity(intent);
+        finish();
     }
 
 }

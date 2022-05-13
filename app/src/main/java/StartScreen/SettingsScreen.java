@@ -29,44 +29,41 @@ public class SettingsScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
-        ResumeB =findViewById(R.id.ResumeB);
-        MainMenuB =findViewById(R.id.MainMenuB);
-        UploadB =findViewById(R.id.UploadB);
-        DownloadB=findViewById(R.id.DownloadB);
-        CheckBoxBW=findViewById(R.id.CheckBoxBW);
+        ResumeB = findViewById(R.id.ResumeB);
+        MainMenuB = findViewById(R.id.MainMenuB);
+        UploadB = findViewById(R.id.UploadB);
+        DownloadB = findViewById(R.id.DownloadB);
+        CheckBoxBW = findViewById(R.id.CheckBoxBW);
     }
     public void onResumeB_Pressed(View caller){
-        /*Intent intent = new Intent(this,MainActivity.class);
-        if (CheckBoxBW.isChecked()){
-            EmptyParticle.isBlack;
-            }
-
-            startActivity(intent);*/
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
         startActivity(intent);
-
         finish();
     }
 
     public void onMainMenuB_Pressed(View caller){
-    Intent intent = new Intent(this, StartScreen.class);
-    //TODO: Stuff for CheckBox black empty particle color needs to be implemented
-      /*if (CheckBoxBW.isChecked()){
-            EmptyParticle.isBlack;
-            }*/
-    startActivity(intent);
+        Intent intent = new Intent(this, StartScreen.class);
+        //TODO: Stuff for CheckBox black empty particle color needs to be implemented
+          /*if (CheckBoxBW.isChecked()){
+                EmptyParticle.isBlack;
+                }*/
+        intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        startActivity(intent);
+        finish();
     }
 
     public void onUploadB_Pressed(View caller){
         Intent intent = new Intent(this, UploadScreen.class);
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
         startActivity(intent);
+        finish();
     }
 
     public void onDownloadB_Pressed(View caller){
         Intent intent = new Intent(this, DownloadScreen.class);
         startActivity(intent);
+        finish();
     }
 
 
