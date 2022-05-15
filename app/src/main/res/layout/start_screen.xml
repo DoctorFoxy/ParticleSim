@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/particlesim_startscreen">
+    android:background="@drawable/particlesimstartscreen2">
 
     <Button
         android:id="@+id/LoadGameB"
         android:layout_width="171dp"
         android:layout_height="67dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onLoadGame_pressed"
         android:text="@string/load_game"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,8 +25,10 @@
         android:layout_width="202dp"
         android:layout_height="86dp"
         android:layout_marginBottom="32dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onNewGame_Pressed"
-        android:text="New Game / Resume"
+        android:text="Play"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/LoadGameB"
         app:layout_constraintEnd_toEndOf="@+id/LoadGameB"
         app:layout_constraintHorizontal_bias="0.483"
@@ -36,6 +39,7 @@
         android:layout_width="167dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onSettings_Pressed"
         android:text="@string/settings"
         app:layout_constraintStart_toStartOf="@+id/LoadGameB"

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Config
         backgroundColor = Color.WHITE;
-        simSpeed = 50;
+        simSpeed = 30;
         selectedType = Type.WATER;
         pressing = false;
 

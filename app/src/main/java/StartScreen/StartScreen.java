@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.particlesim.MainActivity;
 import com.example.particlesim.R;
@@ -12,6 +13,7 @@ import com.example.particlesim.R;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import ParticleEngine.Particle;
 import ParticleEngine.ParticleWorld;
@@ -19,7 +21,6 @@ import ParticleEngine.WorldParser;
 
 
 public class StartScreen extends AppCompatActivity {
-    private Button NewGameB;
     private Button LoadGameB;
     private Button SettingsB;
     private String worldIntent;
@@ -28,8 +29,8 @@ public class StartScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.start_screen);
-        NewGameB =findViewById(R.id.NewGameB);
         LoadGameB =findViewById(R.id.LoadGameB);
         SettingsB =findViewById(R.id.SettingsB);
 

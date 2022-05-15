@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/settings"
+    android:background="@drawable/settingscreen2"
     tools:context="StartScreen.SettingsScreen">
 
     <Button
         android:id="@+id/DownloadB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="145dp"
+        android:layout_height="62dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onDownloadB_Pressed"
         android:text="@string/download"
         app:layout_constraintBottom_toTopOf="@+id/MainMenuB"
@@ -21,8 +22,9 @@
 
     <Button
         android:id="@+id/MainMenuB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="149dp"
+        android:layout_height="67dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onMainMenuB_Pressed"
         android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/ResumeB"
@@ -33,8 +35,9 @@
 
     <Button
         android:id="@+id/UploadB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="146dp"
+        android:layout_height="66dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onUploadB_Pressed"
         android:text="@string/upload"
         app:layout_constraintBottom_toTopOf="@+id/DownloadB"
@@ -45,9 +48,10 @@
 
     <Button
         android:id="@+id/ResumeB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="146dp"
+        android:layout_height="63dp"
         android:layout_marginBottom="134dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onResumeB_Pressed"
         android:text="@string/resume"
         app:layout_constraintBottom_toBottomOf="parent"

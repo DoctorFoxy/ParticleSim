@@ -4,73 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#F7F7F7"
     tools:context="StartScreen.UploadScreen">
 
     <Button
         android:id="@+id/UploadButton"
         android:layout_width="163dp"
         android:layout_height="86dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="68dp"
         android:onClick="onUploadPressed"
         android:text="Upload"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/BackButton"
+        app:layout_constraintEnd_toStartOf="@+id/BackButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/BackButton"
         android:layout_width="163dp"
         android:layout_height="86dp"
-        android:layout_marginStart="232dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="72dp"
         android:onClick="onBackPressed"
-        android:text="Back"
+        android:text="Play"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/UploadButton" />
 
     <TextView
         android:id="@+id/worldNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="120dp"
         android:text="World Name"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextWorldName"
+        app:layout_constraintStart_toStartOf="@+id/editTextWorldName" />
 
     <TextView
         android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
         android:text="Username"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/worldNameText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWorldName" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
+        app:layout_constraintStart_toStartOf="@+id/editTextUsername" />
 
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="325dp"
         android:layout_height="64dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="136dp"
         android:ems="10"
-        android:maxLength="15"
         android:hint="Username"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/usernameText"
+        android:maxLength="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextWorldName" />
 
     <EditText
         android:id="@+id/editTextWorldName"
         android:layout_width="325dp"
         android:layout_height="64dp"
-        android:layout_marginTop="8dp"
-        android:maxLength="15"
+        android:layout_marginTop="148dp"
+        android:backgroundTint="#5273D8"
         android:ems="10"
         android:hint="World Name"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/worldNameText"
-        app:layout_constraintTop_toBottomOf="@+id/worldNameText" />
+        android:maxLength="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

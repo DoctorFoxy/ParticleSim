@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4E4E4"
+    android:background="#f7f7f7"
     tools:context=".MainActivity">
 
     <ImageView
@@ -66,20 +66,22 @@
 
     <Button
         android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="121dp"
+        android:layout_height="53dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/bluebutton"
         android:text="Reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/settingsScreenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="124dp"
+        android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onSettingsScreen_Pressed"
         android:text="Settings"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,10 +89,11 @@
 
     <Button
         android:id="@+id/mainMenuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="107dp"
+        android:layout_height="37dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/bluebutton"
         android:onClick="onMainMenuButton_Pressed"
         android:text="Main Menu"
         app:layout_constraintStart_toStartOf="parent"
