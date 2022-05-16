@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import ParticleEngine.EmptyParticle;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
         System.out.println("MainActivity ON CREATE");
@@ -135,6 +138,55 @@ public class MainActivity extends AppCompatActivity {
                 refresh();
             }
         });
+
+        Button mainMenuButton = findViewById(R.id.mainMenuButton);
+        mainMenuButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    //Button Pressed
+                    mainMenuButton.setBackgroundResource(R.drawable.bluebuttonpressed);
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    //finger was lifted
+                    mainMenuButton.setBackgroundResource(R.drawable.bluebutton);
+                }
+                return false;
+            }
+        });
+
+        Button settingsButton = findViewById(R.id.settingsScreenButton);
+        settingsButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    //Button Pressed
+                    settingsButton.setBackgroundResource(R.drawable.bluebuttonpressed);
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    //finger was lifted
+                    settingsButton.setBackgroundResource(R.drawable.bluebutton);
+                }
+                return false;
+            }
+        });
+
+        Button resetButton = findViewById(R.id.resetButton);
+        resetButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    //Button Pressed
+                    resetButton.setBackgroundResource(R.drawable.bluebuttonpressed);
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    //finger was lifted
+                    resetButton.setBackgroundResource(R.drawable.bluebutton);
+                }
+                return false;
+            }
+        });
+
     }
 
     public void On_Gas_Pressed(View caller){

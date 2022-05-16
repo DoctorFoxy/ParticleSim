@@ -7,7 +7,7 @@
     android:background="@drawable/particlesimstartscreen2">
 
     <Button
-        android:id="@+id/LoadGameB"
+        android:id="@+id/loadGameButton"
         android:layout_width="171dp"
         android:layout_height="67dp"
         android:background="@drawable/bluebutton"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.533" />
 
     <Button
-        android:id="@+id/NewGameB"
+        android:id="@+id/newGameButton"
         android:layout_width="202dp"
         android:layout_height="86dp"
         android:layout_marginBottom="32dp"
@@ -29,20 +29,20 @@
         android:onClick="onNewGame_Pressed"
         android:text="Play"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/LoadGameB"
-        app:layout_constraintEnd_toEndOf="@+id/LoadGameB"
+        app:layout_constraintBottom_toTopOf="@+id/loadGameButton"
+        app:layout_constraintEnd_toEndOf="@+id/loadGameButton"
         app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="@+id/LoadGameB" />
+        app:layout_constraintStart_toStartOf="@+id/loadGameButton" />
 
     <Button
-        android:id="@+id/SettingsB"
+        android:id="@+id/settingsButton"
         android:layout_width="167dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/bluebutton"
         android:onClick="onSettings_Pressed"
         android:text="@string/settings"
-        app:layout_constraintStart_toStartOf="@+id/LoadGameB"
-        app:layout_constraintTop_toBottomOf="@+id/LoadGameB" />
+        app:layout_constraintStart_toStartOf="@+id/loadGameButton"
+        app:layout_constraintTop_toBottomOf="@+id/loadGameButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
