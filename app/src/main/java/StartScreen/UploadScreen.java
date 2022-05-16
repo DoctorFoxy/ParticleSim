@@ -31,11 +31,20 @@ public class UploadScreen extends AppCompatActivity {
     }
 
     public void onUploadPressed(View caller) throws JSONException {
-        upload();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("World", getIntent().getSerializableExtra("World"));
-        startActivity(intent);
-        finish();
+        if (getIntent().getSerializableExtra("World") == null) {
+            Toast.makeText(getApplicationContext(),"Error: WorldData = null",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("World", getIntent().getSerializableExtra("World"));
+            startActivity(intent);
+            finish();
+        }
+        else {
+            upload();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("World", getIntent().getSerializableExtra("World"));
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void onBackPressed(View caller){
@@ -56,7 +65,7 @@ public class UploadScreen extends AppCompatActivity {
 
         EditText textUsername = (EditText)findViewById(R.id.editTextUsername);
         String username = textUsername.getText().toString();
-        username = username.replaceAll(" ", "m");
+        username = username.replaceAll(" ", "_");
 
         requestURL += username + "/" + worldName + "/" + getIntent().getSerializableExtra("World");
         System.out.println(requestURL);
