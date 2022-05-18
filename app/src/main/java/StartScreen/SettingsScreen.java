@@ -100,8 +100,10 @@ public class SettingsScreen extends AppCompatActivity {
             }
         });
     }
+
     public void onResumeB_Pressed(View caller){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("Blackmode", CheckBoxBW.isChecked());
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
         startActivity(intent);
         finish();
@@ -110,23 +112,25 @@ public class SettingsScreen extends AppCompatActivity {
     public void onMainMenuB_Pressed(View caller){
         Intent intent = new Intent(this, StartScreen.class);
         //TODO: Stuff for CheckBox black empty particle color needs to be implemented
-          /*if (CheckBoxBW.isChecked()){
-                EmptyParticle.isBlack;
-                }*/
+        intent.putExtra("Blackmode", CheckBoxBW.isChecked());
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
         startActivity(intent);
         finish();
     }
 
+
+
     public void onUploadB_Pressed(View caller){
         Intent intent = new Intent(this, UploadScreen.class);
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        intent.putExtra("Blackmode", CheckBoxBW.isChecked());
         startActivity(intent);
         finish();
     }
 
     public void onDownloadB_Pressed(View caller){
         Intent intent = new Intent(this, DownloadScreen.class);
+        intent.putExtra("Blackmode", CheckBoxBW.isChecked());
         startActivity(intent);
         finish();
     }

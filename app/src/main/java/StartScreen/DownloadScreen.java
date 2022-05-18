@@ -5,6 +5,7 @@ import  com.example.particlesim.MainActivity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,10 +35,15 @@ public class DownloadScreen extends AppCompatActivity {
     ListView downloadsList;
     private RequestQueue requestQueue;
     private ArrayList<String> worldData;
+    private Boolean Blackmode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        if(extras.getBoolean("Blackmode")){
+            setBlackmode(true);
+        }
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_download_screen);
         downloadsList = findViewById(R.id.FilteredDownloadsListView);
@@ -47,12 +53,23 @@ public class DownloadScreen extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(DownloadScreen.this, MainActivity.class);
+                intent.putExtra("Blackmode",getBlackmode());
                 System.out.println(worldData.get(i));
                 intent.putExtra("World", worldData.get(i));
                 startActivity(intent);
                 finish();
             }
         });
+
+
+    }
+
+    public Boolean getBlackmode() {
+        return Blackmode;
+    }
+
+    public void setBlackmode(Boolean blackmode) {
+        Blackmode = blackmode;
     }
 
     public void onUsernameButtonClick(View Caller) {

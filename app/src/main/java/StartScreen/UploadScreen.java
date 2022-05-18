@@ -30,6 +30,7 @@ public class UploadScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_upload_screen);
+
     }
 
     public void onUploadPressed(View caller) throws JSONException {
@@ -37,6 +38,7 @@ public class UploadScreen extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Error: WorldData = null",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("World", getIntent().getSerializableExtra("World"));
+            intent.putExtra("Blackmode",getIntent().getBooleanExtra("Blackmode",false));
             startActivity(intent);
             finish();
         }
@@ -44,6 +46,7 @@ public class UploadScreen extends AppCompatActivity {
             upload();
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("World", getIntent().getSerializableExtra("World"));
+            intent.putExtra("Blackmode",getIntent().getBooleanExtra("Blackmode",false));
             startActivity(intent);
             finish();
         }
@@ -52,9 +55,12 @@ public class UploadScreen extends AppCompatActivity {
     public void onBackPressed(View caller){
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("World", getIntent().getSerializableExtra("World"));
+        intent.putExtra("Blackmode",getIntent().getBooleanExtra("Blackmode",false));
         startActivity(intent);
         finish();
     }
+
+
 
     public void upload() {
         requestQueue = Volley.newRequestQueue( this );

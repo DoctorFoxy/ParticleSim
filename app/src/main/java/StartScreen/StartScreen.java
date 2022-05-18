@@ -26,12 +26,14 @@ public class StartScreen extends AppCompatActivity {
     private String worldIntent;
 
 
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         setContentView(R.layout.start_screen);
         LoadGameB =findViewById(R.id.loadGameButton);
         SettingsB =findViewById(R.id.settingsButton);
@@ -103,14 +105,19 @@ public class StartScreen extends AppCompatActivity {
         });
     }
 
+
+
+
     public void onNewGame_Pressed(View caller){
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("World", worldIntent);
+        intent.putExtra("Blackmode", getIntent().getBooleanExtra("Blackmode",false));
         startActivity(intent);
     }
     public void onLoadGame_pressed(View caller){
         Intent intent = new Intent(this, DownloadScreen.class);
         intent.putExtra("World", worldIntent);
+        intent.putExtra("Blackmode",getIntent().getBooleanExtra("Blackmode",false));
         startActivity(intent);
         finish();
     }

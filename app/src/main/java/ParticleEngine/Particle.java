@@ -34,5 +34,12 @@ public abstract class Particle {
     }
 
     public abstract  Particle clone (ParticleWorld cloneWorld);
-
+    public void isBlack()
+    {
+        color = Color.BLACK;
+    }
+    public void isWhite()
+    {
+        color = Color.WHITE;
+    }
 }

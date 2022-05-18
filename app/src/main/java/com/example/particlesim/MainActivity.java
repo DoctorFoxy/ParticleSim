@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
-
+        Bundle extras = getIntent().getExtras();
         System.out.println("MainActivity ON CREATE");
+
 
         //Config
         backgroundColor = Color.WHITE;
@@ -74,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
             getIntent().removeExtra("World");
         }
 
-
+        if(extras.getBoolean("Blackmode")){
+            backgroundColor=Color.BLACK;
+        }
         //Repeats code
         tickHandler = new Handler();
         repeatedCode.run();
