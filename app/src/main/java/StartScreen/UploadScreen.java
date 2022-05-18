@@ -62,12 +62,14 @@ public class UploadScreen extends AppCompatActivity {
 
         EditText textWorldName = (EditText)findViewById(R.id.editTextWorldName);
         String worldName = textWorldName.getText().toString();
+        worldName = worldName.trim();
         worldName = worldName.replaceAll(" ", "_");
-        System.out.println(worldName);
 
         EditText textUsername = (EditText)findViewById(R.id.editTextUsername);
         String username = textUsername.getText().toString();
+        username = username.trim();
         username = username.replaceAll(" ", "_");
+
 
         requestURL += username + "/" + worldName + "/" + getIntent().getSerializableExtra("World");
         System.out.println(requestURL);
