@@ -101,6 +101,7 @@ public class SettingsScreen extends AppCompatActivity {
         });
     }
 
+
     public void onResumeB_Pressed(View caller){
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("Blackmode", CheckBoxBW.isChecked());
