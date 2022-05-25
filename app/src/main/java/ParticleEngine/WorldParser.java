@@ -1,7 +1,5 @@
 package ParticleEngine;
 
-import android.widget.Switch;
-
 public class WorldParser {
 
     private WorldParser() { }
@@ -13,7 +11,7 @@ public class WorldParser {
             for (Particle particle : col) {
 
                 switch (particle.getType()) {
-                    //TODO: ADD ALL ELEMENTS
+                    //TODO: ADD MORE ELEMENTS
                     case GAS:
                         tempString += "4";
                         break;
@@ -45,7 +43,7 @@ public class WorldParser {
                 char tempChar = worldString.toCharArray()[rowIndex + colIndex*35];
 
                 switch (tempChar) {
-                    //TODO: ADD ALL ELEMENTS
+                    //TODO: ADD MORE ELEMENTS
                     case '4':
                         tempWorld[colIndex][rowIndex] = new GasParticle(world);
                         break;
@@ -61,8 +59,6 @@ public class WorldParser {
                     default:
                         tempWorld[colIndex][rowIndex] = new EmptyParticle(world);
                 }
-
-                System.out.print(tempChar);
             }
         }
 
