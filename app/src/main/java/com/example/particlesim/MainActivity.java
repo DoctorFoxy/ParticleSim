@@ -196,6 +196,10 @@ public class MainActivity extends AppCompatActivity {
         selectedType = Type.GAS;
     }
 
+    public void On_Erase_Pressed(View caller){
+        selectedType = Type.EMPTY;
+    }
+
     Runnable repeatedCode = new Runnable() {
         @Override
         public void run() {

@@ -60,8 +60,6 @@ public class UploadScreen extends AppCompatActivity {
         finish();
     }
 
-
-
     public void upload() {
         requestQueue = Volley.newRequestQueue( this );
         String requestURL = "https://studev.groept.be/api/a21pt211/uploadWorld/";
@@ -75,7 +73,6 @@ public class UploadScreen extends AppCompatActivity {
         String username = textUsername.getText().toString();
         username = username.trim();
         username = username.replaceAll(" ", "_");
-
 
         requestURL += username + "/" + worldName + "/" + getIntent().getSerializableExtra("World");
         System.out.println(requestURL);
