@@ -29,6 +29,7 @@ public class SettingsScreen extends AppCompatActivity {
     private CheckBox CheckBoxBW;
     @SuppressLint("ClickableViewAccessibility")
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

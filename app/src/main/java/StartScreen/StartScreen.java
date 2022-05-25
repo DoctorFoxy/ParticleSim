@@ -36,17 +36,17 @@ public class StartScreen extends AppCompatActivity {
         LoadGameB =findViewById(R.id.loadGameButton);
         SettingsB =findViewById(R.id.settingsButton);
 
+        //Intent stuff
         worldIntent = (String) getIntent().getSerializableExtra("World");
 
         if (worldIntent == null) {
-            System.out.println("YES SIR");
+            System.out.println("World Intent is null");
         }
         try {
             System.out.println("MainActivity");
             System.out.println(worldIntent);
             ParticleWorld test = new ParticleWorld();
             test.setWorld(WorldParser.stringToWorld(worldIntent, test));
-            System.out.println("test");
         }
         catch (Exception e) {
             System.out.println(e);

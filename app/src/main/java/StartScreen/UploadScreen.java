@@ -80,7 +80,7 @@ public class UploadScreen extends AppCompatActivity {
                 {
                     @Override
                     public void onResponse(JSONArray response) {
-                        System.out.println("SUCCESS");
+                        Toast.makeText(getApplicationContext(),"SUCCESS",Toast.LENGTH_SHORT).show();
                     }
                 },
 
@@ -89,9 +89,7 @@ public class UploadScreen extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error)
                     {
-                        //txtResponse.setText( error.getLocalizedMessage() );
-                        //TODO: Error handler upload
-                        System.out.println("ERROR");
+                        Toast.makeText(getApplicationContext(),"Response error: " + error.toString(),Toast.LENGTH_SHORT).show();
                     }
                 }
         );
